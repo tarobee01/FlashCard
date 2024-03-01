@@ -16,7 +16,11 @@ struct EditCardView: View {
                 Section("Add new card") {
                     TextField("Prompt", text: $editCardVm.newPrompt)
                     TextField("Answer", text: $editCardVm.newAnswer)
-                    Button("Add Card", action: editCardVm.addCard)
+                    Button("Add Card", action: {
+                        editCardVm.addCard()
+                        editCardVm.newPrompt = ""
+                        editCardVm.newAnswer = ""
+                    })
                 }
 
                 Section {
